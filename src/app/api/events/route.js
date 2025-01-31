@@ -19,29 +19,31 @@ let events = [
     date: "2024-10-05",
     description: "Explore culinary delights and wine tasting from around the world."
   }
-]() 
-return NextResponse.json(events)
+]
 
+export async function GET() {
+  return NextResponse.json(events)
+}
 
 export async function POST(request) {
   try {
     const newEvent = await request.json()
     const newId = events.length > 0 ? Math.max(...events.map(e => e.id)) + 1 : 1
-  
+
     const eventToAdd = {
       id: newId,
       name: newEvent.name,
       date: newEvent.date,
       description: newEvent.description
     }
-    
+
     events.push(eventToAdd)
-    
+
     return NextResponse.json(eventToAdd, { status: 201 })
   } catch (error) {
     return NextResponse.json(
-      { error: 'Failed to add event' },
-      { status: 400 }
+        { error: 'Failed to add event' },
+        { status: 400 }
     )
   }
-} 
+}
