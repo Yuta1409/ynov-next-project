@@ -20,6 +20,10 @@ const EventSchema = new mongoose.Schema({
   image: {
     type: String,
   },
+  availableSeats: {
+    type: Number,
+    required: true,
+  },
 });
 
 export default mongoose.models.Event || mongoose.model('Event', EventSchema);
