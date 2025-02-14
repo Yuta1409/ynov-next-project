@@ -17,11 +17,11 @@ export const Navbar = () => {
         <Link href="/">
           <span className="flex items-center space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100">
             <span>
-              <svg width="170" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg" fill="none">
-                <rect width="300" height="100" fill="#000" rx="15"/>
-                <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="40" fill="#fff" font-weight="bold" text-anchor="middle" alignment-baseline="middle">EventMaster</text>
-                <circle cx="280" cy="20" r="8" fill="#FF5733"/>
-                <path d="M260 80 L270 60 L280 80 Z" fill="#FFD700"/>
+              <svg width="300" height="100" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg" fill="none">
+                <rect width="300" height="100" fill="#000" rx="15" />
+                <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="40" fill="#fff" font-weight="bold" text-anchor="middle" alignment-baseline="middle">Celebris</text>
+                <circle cx="280" cy="20" r="8" fill="#FF5733" />
+                <path d="M260 80 L270 60 L280 80 Z" fill="#FFD700" />
               </svg>
             </span>
           </span>

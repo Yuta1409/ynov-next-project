@@ -3,7 +3,7 @@ import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
 import { Navbar } from '../components/Navbar'
 import { EventCard } from '../components/EventCard'
-import Modal from '../components/Modal'
+import CreateFormEvents from '../components/CreateFormEvents'
 
 async function getEvents() {
   const res = await fetch('/api/events', { cache: 'no-store' })
@@ -62,7 +62,7 @@ export default function EventsPage() {
           <EventCard events={events} />
         </div>
       </main>
-      <Modal
+      <CreateFormEvents
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSubmit={handleCreateEvent}

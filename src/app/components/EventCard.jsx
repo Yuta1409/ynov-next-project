@@ -10,7 +10,6 @@ export function EventCard({ events }) {
             <h2 className="text-2xl font-semibold mb-2">{event.name}</h2>
             <p className="text-gray-400 mb-1">{event.date}</p>
             <p className="text-gray-400 mb-1">{event.location}</p>
-            <p className="mt-2 text-gray-300">{event.description}</p>
             <Link href={`/events/${event._id}`} legacyBehavior>
               <a className="mt-4 inline-block bg-purple-500 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition-colors duration-300">
                 Plus de détails

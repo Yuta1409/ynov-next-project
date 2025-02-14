@@ -43,16 +43,16 @@ export default function Home() {
           </SectionTitle>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-gray-800 shadow-md rounded-lg p-8 mb-8 text-white">
-              <h3 className="text-xl font-semibold mb-4">Artiste 1</h3>
-              <p>Artiste 1 est connu pour ses performances énergiques et ses hits qui font danser les foules.</p>
+              <h3 className="text-xl font-semibold mb-4">KX CHR</h3>
+              <p>KX CHR est connu pour ses performances énergiques et ses hits qui font danser les foules.</p>
             </div>
             <div className="bg-gray-800 shadow-md rounded-lg p-8 mb-8 text-white">
-              <h3 className="text-xl font-semibold mb-4">Artiste 2</h3>
-              <p>Artiste 2 apporte une touche unique avec son style musical innovant et ses paroles inspirantes.</p>
+              <h3 className="text-xl font-semibold mb-4">OMAKS</h3>
+              <p>OMAKS apporte une touche unique avec son style musical innovant et ses paroles inspirantes.</p>
             </div>
             <div className="bg-gray-800 shadow-md rounded-lg p-8 mb-8 text-white">
-              <h3 className="text-xl font-semibold mb-4">Artiste 3</h3>
-              <p>Artiste 3 est une légende de la musique, avec des décennies de succès et une présence scénique incroyable.</p>
+              <h3 className="text-xl font-semibold mb-4">Teksa</h3>
+              <p>Teksa est une légende de la musique, avec des décennies de succès et une présence scénique incroyable.</p>
             </div>
           </div>
         </div>
