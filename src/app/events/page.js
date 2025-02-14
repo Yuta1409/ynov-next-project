@@ -1,7 +1,9 @@
 'use client'
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
-import Navbar from '../components/Navbar'
+import { Navbar } from '../components/Navbar'
+import { EventCard } from '../components/EventCard'
+import Modal from '../components/Modal'
 
 async function getEvents() {
   const res = await fetch('/api/events', { cache: 'no-store' })
@@ -13,43 +15,58 @@ async function getEvents() {
 
 export default function EventsPage() {
   const [events, setEvents] = useState([])
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     getEvents().then(setEvents)
   }, [])
 
+  const handleCreateEvent = async (data) => {
+    const res = await fetch('/api/events', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+    if (res.ok) {
+      const newEvent = await res.json()
+      setEvents([...events, newEvent])
+      setIsModalOpen(false)
+    } else {
+      console.error('Failed to create event')
+    }
+  }
+
   return (
     <div>
       <Navbar />
-      <main className="min-h-screen p-24 bg-gray-100">
-        <div className="container mx-auto">
+      <main className="relative min-h-screen p-24 bg-gray-900 text-white">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-purple-500 clip-triangle animate-pulse"></div>
+          <div className="absolute top-1/4 right-10 w-24 h-24 bg-indigo-500 clip-triangle animate-bounce"></div>
+          <div className="absolute bottom-10 left-1/4 w-20 h-20 bg-green-500 clip-triangle animate-spin"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-16 h-16 bg-blue-500 clip-triangle animate-ping"></div>
+        </div>
+        <div className="relative z-10 container mx-auto">
           <div className="flex justify-between items-center mb-8">
             <h1 className="text-4xl font-bold">Events</h1>
-            <Link href="/events/create" legacyBehavior>
-              <a className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-700">
-                Créer un nouvel événement
-              </a>
-            </Link>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-purple-500 text-white px-4 py-2 rounded-full hover:bg-purple-700 transition-colors duration-300"
+            >
+              Créer un nouvel événement
+            </button>
           </div>
 
-          <div className="grid gap-4">
-            {events.map((event) => (
-              <div key={event._id} className="p-4 border rounded-lg shadow bg-white">
-                <h2 className="text-xl font-semibold">{event.name}</h2>
-                <p className="text-gray-600">{event.date}</p>
-                <p>{event.location}</p>
-                <p>{event.description}</p>
-                {event.image && <img src={event.image} alt={event.name} className="mt-4 rounded" />}
-                <Link href={`/events/${event._id}`} legacyBehavior>
-                  <a className="mt-2 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
-                    Plus de détails
-                  </a>
-                </Link>
-              </div>
-            ))}
-          </div>
+          <EventCard events={events} />
         </div>
       </main>
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSubmit={handleCreateEvent}
+      />
     </div>
   );
 }

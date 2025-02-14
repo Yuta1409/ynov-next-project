@@ -1,39 +1,127 @@
-import Link from 'next/link';
-import Navbar from './components/Navbar';
+import { Navbar } from './components/Navbar';
+import { Hero } from "./components/Hero";
+import { SectionTitle } from "./components/SectionTitle";
+import Footer from './components/Footer';
 
 export default function Home() {
   return (
-    <div>
+    <main>
       <Navbar />
-      <header className="relative h-screen">
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-black bg-opacity-60"></div>
+      <Hero />
+
+      <section className="relative py-16 bg-gray-800 text-white">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/2 right-10 w-24 h-24 bg-indigo-500 clip-square animate-bounce"></div>
+          <div className="absolute bottom-10 left-10 w-20 h-20 bg-green-500 clip-circle animate-spin"></div>
+          <div className="absolute bottom-1/4 right-1/2 w-16 h-16 bg-blue-500 clip-square animate-ping"></div>
         </div>
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-white px-4">
-          <h1 className="text-6xl font-bold mb-6 text-center">Bienvenue sur Notre Site</h1>
-          <p className="text-xl mb-8 text-center max-w-2xl">Votre destination pour des événements incroyables</p>
-          <div className="flex gap-4">
-            <Link href="/events" className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded-full font-semibold transition">Voir les événements</Link>
-            <Link href="/about" className="border-2 border-white hover:bg-white hover:text-black px-8 py-3 rounded-full font-semibold transition">En savoir plus</Link>
+        <div className="relative z-10">
+          <SectionTitle
+            preTitle="Avantages de notre événement"
+            title="Pourquoi participer à notre concert"
+            className="text-white"
+          >
+            Notre concert offre une expérience unique avec des performances en direct de vos artistes préférés. Rejoignez-nous pour une soirée inoubliable remplie de musique et de divertissement.
+          </SectionTitle>
+        </div>
+      </section>
+
+      <section className="relative py-16 bg-gray-900 text-white">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-500 rounded-full animate-pulse"></div>
+          <div className="absolute top-10 right-10 w-24 h-24 bg-indigo-500 rounded-full animate-bounce"></div>
+          <div className="absolute bottom-1/4 left-10 w-20 h-20 bg-green-500 rounded-full animate-spin"></div>
+          <div className="absolute bottom-10 right-1/4 w-16 h-16 bg-blue-500 rounded-full animate-ping"></div>
+        </div>
+        <div className="relative z-10">
+          <SectionTitle
+            preTitle="Découvrez nos artistes"
+            title="Rencontrez les artistes qui se produiront"
+            className="text-white"
+          >
+            Cette section met en avant les artistes qui se produiront lors de notre événement. Apprenez-en plus sur eux et préparez-vous à une expérience musicale inoubliable.
+          </SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gray-800 shadow-md rounded-lg p-8 mb-8 text-white">
+              <h3 className="text-xl font-semibold mb-4">Artiste 1</h3>
+              <p>Artiste 1 est connu pour ses performances énergiques et ses hits qui font danser les foules.</p>
+            </div>
+            <div className="bg-gray-800 shadow-md rounded-lg p-8 mb-8 text-white">
+              <h3 className="text-xl font-semibold mb-4">Artiste 2</h3>
+              <p>Artiste 2 apporte une touche unique avec son style musical innovant et ses paroles inspirantes.</p>
+            </div>
+            <div className="bg-gray-800 shadow-md rounded-lg p-8 mb-8 text-white">
+              <h3 className="text-xl font-semibold mb-4">Artiste 3</h3>
+              <p>Artiste 3 est une légende de la musique, avec des décennies de succès et une présence scénique incroyable.</p>
+            </div>
           </div>
         </div>
-      </header>
-      <main className="container mx-auto my-8 p-6">
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div>
-            <h2 className="text-2xl font-bold mb-4">Derniers Événements</h2>
-            <p>Découvrez les événements à venir et réservez vos places dès maintenant.</p>
+      </section>
+
+      <section className="relative py-16 bg-gray-800 text-white">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-10 left-1/4 w-32 h-32 bg-purple-500 clip-circle animate-pulse"></div>
+          <div className="absolute top-1/2 right-10 w-24 h-24 bg-indigo-500 clip-square animate-bounce"></div>
+          <div className="absolute bottom-10 left-10 w-20 h-20 bg-green-500 clip-circle animate-spin"></div>
+          <div className="absolute bottom-1/4 right-1/2 w-16 h-16 bg-blue-500 clip-square animate-ping"></div>
+        </div>
+        <div className="relative z-10">
+          <SectionTitle
+            preTitle="Témoignages"
+            title="Voici ce que nos participants disent"
+            className="text-white"
+          >
+            Les témoignages sont un excellent moyen d'augmenter la confiance et la notoriété de la marque. Utilisez cette section pour mettre en avant les avis de vos participants.
+          </SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gray-900 shadow-md rounded-lg p-8 mb-8 text-white">
+              <img src="/img/user1.jpg" alt="Jean Dupont" className="w-16 h-16 rounded-full mb-4 mx-auto" />
+              <h3 className="text-xl font-semibold mb-4">Jean Dupont</h3>
+              <p>C'était une expérience incroyable ! La musique était fantastique et l'ambiance était électrique.</p>
+            </div>
+            <div className="bg-gray-900 shadow-md rounded-lg p-8 mb-8 text-white">
+              <img src="/img/user2.jpg" alt="Marie Curie" className="w-16 h-16 rounded-full mb-4 mx-auto" />
+              <h3 className="text-xl font-semibold mb-4">Marie Curie</h3>
+              <p>J'ai adoré chaque moment du concert. Les artistes étaient incroyables et l'organisation était parfaite.</p>
+            </div>
+            <div className="bg-gray-900 shadow-md rounded-lg p-8 mb-8 text-white">
+              <img src="/img/user3.jpg" alt="Albert Einstein" className="w-16 h-16 rounded-full mb-4 mx-auto" />
+              <h3 className="text-xl font-semibold mb-4">Albert Einstein</h3>
+              <p>Un événement à ne pas manquer ! J'ai passé un moment inoubliable avec mes amis.</p>
+            </div>
           </div>
-          <div>
-            <h2 className="text-2xl font-bold mb-4">À Propos</h2>
-            <p>En savoir plus sur notre mission et notre équipe.</p>
-            <Link href="/about" className="mt-4 inline-block px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700">En savoir plus</Link>
+        </div>
+      </section>
+
+      <section className="relative py-16 bg-gray-900 text-white">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-purple-500 rounded-full animate-pulse"></div>
+          <div className="absolute top-10 right-10 w-24 h-24 bg-indigo-500 rounded-full animate-bounce"></div>
+          <div className="absolute bottom-1/4 left-10 w-20 h-20 bg-green-500 rounded-full animate-spin"></div>
+          <div className="absolute bottom-10 right-1/4 w-16 h-16 bg-blue-500 rounded-full animate-ping"></div>
+        </div>
+        <div className="relative z-10">
+          <SectionTitle preTitle="FAQ" title="Questions Fréquemment Posées" className="text-white">
+            Répondez aux questions possibles de vos participants ici, cela augmentera le taux de conversion ainsi que les demandes de support ou de chat.
+          </SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-gray-800 shadow-md rounded-lg p-8 mb-8 text-white">
+              <h3 className="text-xl font-semibold mb-4">Quelle est la date de l'événement ?</h3>
+              <p>L'événement aura lieu le 25 décembre 2025.</p>
+            </div>
+            <div className="bg-gray-800 shadow-md rounded-lg p-8 mb-8 text-white">
+              <h3 className="text-xl font-semibold mb-4">Où se déroule l'événement ?</h3>
+              <p>L'événement se déroulera au Stade de France, Paris.</p>
+            </div>
+            <div className="bg-gray-800 shadow-md rounded-lg p-8 mb-8 text-white">
+              <h3 className="text-xl font-semibold mb-4">Comment puis-je acheter des billets ?</h3>
+              <p>Vous pouvez acheter des billets en ligne sur notre site web ou dans les points de vente autorisés.</p>
+            </div>
           </div>
-        </section>
-      </main>
-      <footer className="bg-gray-800 text-white text-center py-4">
-        <p>&copy; 2023 Notre Site. Tous droits réservés.</p>
-      </footer>
-    </div>
+        </div>
+      </section>
+
+      <Footer />
+    </main>
   );
 }
